@@ -3,8 +3,9 @@
       "target": "es6", // Set the target JavaScript version (adjust if needed)
       "lib": ["dom", "dom.iterable", "esnext"], // Standard library libraries
       "allowJs": true, // Allow compiling existing JavaScript files
+      "rootDir": "src",
       //"strict": true, // Enable strict type checking
-      "outDir": "dist/index.js", // Optional: Bundle compiled JS files (adjust path)
+      "outDir": "dist/app.js", // Optional: Bundle compiled JS files (adjust path)
       "module": "commonjs", // Module system (commonjs for Node.js)
       "strictNullChecks": true, // Ensures non-null checks
       "esModuleInterop": true, // Allow usage of modern ES modules syntax 
