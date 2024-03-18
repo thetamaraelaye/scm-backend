@@ -1,3 +1,5 @@
+dist/app/
 node_modules
 .env
 dist
+/dist
