@@ -1,6 +1,12 @@
+if (process.env.NODE_ENV !== 'production') {
+  require("dotenv").config();    
+}
+
 import express, { Express } from "express"
-import mongoose from "mongoose"
 import cors from "cors"
+import { startDB } from "./config/db.config";
+
+startDB();
 
 const app: Express = express()
 
