@@ -4,7 +4,7 @@
 
 ## Details:
 
-<!-- Add more context to decribe the changes -->
+<!-- Add more context to describe the changes -->
 
 ## Test Plan:
 
@@ -12,5 +12,5 @@
 
 ## Checks:
 
-- [x] Have you unit tested your changes?
-- [x] Have you linted your code?
+- [ ] Have you unit tested your changes?
+- [ ] Have you linted your code?
