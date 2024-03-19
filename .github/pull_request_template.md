@@ -12,4 +12,5 @@
 
 ## Checks:
 
-- [x] Tested changes?
+- [x] Have you unit tested your changes?
+- [x] Have you linted your code?
