@@ -1,4 +1,4 @@
-##SCM Backend (TypeScript, Node.js, ExpressJS, MongoDB, Mongoose)
+## SCM Backend (TypeScript, Node.js, ExpressJS, MongoDB, Mongoose)
 
 This repository contains the backend code for an e-commerce platform built with TypeScript, Node.js, and
 Mongoose.
