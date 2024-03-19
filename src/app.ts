@@ -8,12 +8,11 @@ import { startDB } from "./config/db.config";
 
 startDB();
 
-const app: Express = express()
+const app: Express = express();
 
-const PORT: string | number = process.env.PORT || 4000
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
-app.use(cors())
-
-app.listen(PORT, () =>
-      console.log(`Server running on http://localhost:${PORT}`)
-    )
+const PORT: number = Number(process.env.PORT) || 4000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

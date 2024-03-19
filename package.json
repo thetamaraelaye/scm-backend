@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:dev": "tsc -w",
     "start": "concurrently \"tsc -w\" \"nodemon dist/app.js/app.js\""
   }
 }

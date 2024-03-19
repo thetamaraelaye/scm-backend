@@ -17,4 +17,4 @@ export async function startDB(): Promise<void> {
 }
 
 // // Export the function for use elsewhere
-// module.exports = startDB;
+module.exports = startDB;
