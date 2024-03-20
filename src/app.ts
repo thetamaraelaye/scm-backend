@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 import express, { Express } from "express"
 import cors from "cors"
-import { startDB } from "./config/db.config";
+import { startDB } from "./configs/db.config";
 
 startDB();
 
