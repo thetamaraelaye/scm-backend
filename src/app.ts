@@ -1,10 +1,12 @@
 if (process.env.NODE_ENV !== 'production') {
   require("dotenv").config();    
 }
+ 
+
 
 import express, { Express } from "express"
 import cors from "cors"
-import { startDB } from "./configs/db.config";
+import startDB from "./configs/db.config";
 
 startDB();
 

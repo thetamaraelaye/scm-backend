@@ -10,10 +10,15 @@
     "rootDir": "src",
     //"strict": true, // Enable strict type checking
     "outDir": "dist", // Optional: Bundle compiled JS files (adjust path)
-    "module": "commonjs", // Module system (commonjs for Node.js)
+    "module": "NodeNext", // Module system (commonjs for Node.js)
     "strictNullChecks": true, // Ensures non-null checks
-    "esModuleInterop": true, // Allow usage of modern ES modules syntax 
-    "forceConsistentCasingInFileNames": true
+    //"esModuleInterop": true, // Allow usage of modern ES modules syntax 
+    "sourceMap": true, // Enable source map generation
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"
