@@ -5,7 +5,7 @@ import { UserDoc } from './user.model';
 // Define enum for functionality status
 enum FunctionalityStatus {
   Working = 'working',
-  NotWorking = 'not_working'
+  NotWorking = 'not_working',
 }
 
 // Define interface for Inspection document
@@ -29,7 +29,7 @@ const InspectionSchema = new Schema<InspectionDoc>({
   additional_information: { type: String, default: null },
   images: { type: [String], default: null },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export Inspection model

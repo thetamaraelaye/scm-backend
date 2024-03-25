@@ -4,7 +4,7 @@ import { UserDoc } from './user.model'; // Importing UserDoc interface from user
 // Define enum for address types
 enum AddressType {
   Home = 'home',
-  Business = 'business'
+  Business = 'business',
 }
 
 // Define interface for Address document
@@ -28,7 +28,7 @@ const AddressSchema = new Schema<AddressDoc>({
   country: { type: String, required: true },
   address_type: { type: String, enum: Object.values(AddressType), default: AddressType.Home }, // Using AddressType enum
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export Address model

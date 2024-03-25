@@ -6,7 +6,7 @@ enum OrderStatus {
   Pending = 'pending',
   Processing = 'processing',
   Fulfilled = 'fulfilled',
-  Failed = 'failed'
+  Failed = 'failed',
 }
 
 // Define interface for Order document
@@ -26,7 +26,7 @@ const OrderSchema = new Schema<OrderDoc>({
   status: { type: String, enum: Object.values(OrderStatus), default: OrderStatus.Pending },
   total_amount: { type: Schema.Types.Decimal128, required: true },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export Order model

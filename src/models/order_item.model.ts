@@ -2,7 +2,6 @@ import { Schema, model, Document, Mongoose } from 'mongoose';
 import { OrderDoc } from './order.model';
 import { ProductDoc } from './product.model';
 
-
 // Define interface for OrderItem document
 interface OrderItemDoc extends Document {
   order_id: OrderDoc['_id'];
@@ -24,10 +23,10 @@ const OrderItemSchema = new Schema<OrderItemDoc>({
   discount_percentage: { type: Number, default: null },
   unit_price: { type: Schema.Types.Decimal128, required: true },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export OrderItem model
 const OrderItem = model<OrderItemDoc>('OrderItem', OrderItemSchema);
 
-export {OrderItem, OrderItemDoc};
+export { OrderItem, OrderItemDoc };

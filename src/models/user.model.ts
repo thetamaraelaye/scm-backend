@@ -5,7 +5,7 @@ import { PermissionDoc } from './permission.model';
 enum UserRole {
   Admin = 'admin',
   Staff = 'staff',
-  Supplier = 'supplier'
+  Supplier = 'supplier',
 }
 
 // Define interface for User document
@@ -35,9 +35,9 @@ const UserSchema = new Schema<UserDoc>({
   nin: { type: Number, default: null },
   role: { type: String, enum: Object.values(UserRole), default: UserRole.Staff },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }, 
+  updated_at: { type: Date, default: Date.now },
   is_admin: { type: Boolean, default: false },
-  permission_id: { type: Schema.Types.ObjectId, ref: 'Permission' }
+  permission_id: { type: Schema.Types.ObjectId, ref: 'Permission' },
 });
 
 // Define and export User model

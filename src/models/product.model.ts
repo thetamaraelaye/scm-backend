@@ -1,6 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import { SupplierDoc } from './supplier.model'; // Importing SupplierDoc interface from supplier.model.ts
-import {UserDoc} from './user.model';
+import { UserDoc } from './user.model';
 // Enums
 enum GadgetType {
   Laptop = 'laptop',
@@ -9,12 +9,12 @@ enum GadgetType {
   Tablet = 'tablet',
   Watch = 'watch',
   Charger = 'charger',
-  Others = 'others'
+  Others = 'others',
 }
 
 enum MemoryType {
   SSD = 'ssd',
-  HDD = 'hdd'
+  HDD = 'hdd',
 }
 
 enum StateOfProduct {
@@ -22,7 +22,7 @@ enum StateOfProduct {
   OpenBox = 'open_box',
   BrandNewNoBox = 'brand_new_no_box',
   ForeignUsed = 'foreign_used',
-  NigerianUsed = 'nigerian_used'
+  NigerianUsed = 'nigerian_used',
 }
 
 // Define interface for Product document
@@ -36,7 +36,7 @@ interface ProductDoc extends Document {
   gadget_type: GadgetType;
   brand: string;
   gadget_model: string;
-  serial_number: string| null,
+  serial_number: string | null;
   ram?: number | null;
   rom?: number | null;
   is_arrived: boolean;
@@ -101,10 +101,10 @@ const ProductSchema = new Schema<ProductDoc>({
   wireless_charging: { type: Boolean, default: false },
   stylus_included: { type: Boolean, default: false },
   cellular_connectivity: { type: Boolean, default: false },
-  other_features: { type: [String], default: null }
+  other_features: { type: [String], default: null },
 });
 
 // Define and export Product model
 const Product = model<ProductDoc>('Product', ProductSchema);
 
-export {Product, ProductDoc};
+export { Product, ProductDoc };

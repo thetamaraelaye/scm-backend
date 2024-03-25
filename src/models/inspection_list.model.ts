@@ -28,7 +28,7 @@ const InspectionChecklistSchema = new Schema<InspectionChecklistDoc>({
   battery_life: { type: String, default: null },
   ram: { type: String, default: null },
   rom: { type: String, default: null },
-  is_charging: { type: Boolean, default: false }
+  is_charging: { type: Boolean, default: false },
 });
 
 // Define and export InspectionChecklist model

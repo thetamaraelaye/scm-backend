@@ -6,7 +6,7 @@ import { SupplierDoc } from './supplier.model';
 enum TrackerStatus {
   Arrived = 'arrived',
   Shipped = 'shipped',
-  Sold = 'sold'
+  Sold = 'sold',
 }
 
 // Define interface for SupplierInventory document
@@ -26,7 +26,7 @@ const SupplierInventorySchema = new Schema<SupplierInventoryDoc>({
   quantity: { type: Number },
   tracker_status: { type: String, enum: Object.values(TrackerStatus), required: true },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export SupplierInventory model

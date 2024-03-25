@@ -18,7 +18,7 @@ const PaymentMethodSchema = new Schema<PaymentMethodDoc>({
   account_number: { type: Number, required: true },
   bank_name: { type: String, required: true },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export PaymentMethod model
