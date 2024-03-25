@@ -7,7 +7,7 @@ interface PermissionDoc extends Document {
 
 // Define Permission Schema
 const PermissionSchema = new Schema<PermissionDoc>({
-  scope: { type: String }
+  scope: { type: String },
 });
 
 // Define and export Permission model

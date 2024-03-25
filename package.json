@@ -23,11 +23,13 @@
     "@types/node": "^20.11.28",
     "concurrently": "^8.2.2",
     "dotenv": "^16.4.5",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
   },
   "scripts": {
     "build": "tsc",
     "build:dev": "tsc -w",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "concurrently \"tsc -w\" \"nodemon dist/app.js\""
   }
 }

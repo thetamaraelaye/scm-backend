@@ -7,7 +7,7 @@ enum InventoryStatus {
   Available = 'available',
   Unavailable = 'unavailable',
   Picked = 'picked',
-  Delivered = 'delivered'
+  Delivered = 'delivered',
 }
 
 // Define interface for Inventory document
@@ -29,7 +29,7 @@ const InventorySchema = new Schema<InventoryDoc>({
   location_in_warehouse: { type: String, default: null },
   supplier_id: { type: Schema.Types.ObjectId, ref: 'Supplier', required: true },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export Inventory model

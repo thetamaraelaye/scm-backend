@@ -14,7 +14,7 @@ interface SupplierDoc extends Document {
   business_email?: string;
   dial_code: string;
   business_phone_number: string;
-  is_approved: Boolean,
+  is_approved: Boolean;
   created_at: Date;
   updated_at: Date;
 }
@@ -34,7 +34,7 @@ const SupplierSchema = new Schema<SupplierDoc>({
   business_phone_number: { type: String, required: true },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
-  is_approved: { type: Boolean, default:false}
+  is_approved: { type: Boolean, default: false },
 });
 
 // Define and export Supplier model

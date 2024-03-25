@@ -4,14 +4,12 @@ import { User, UserDoc } from '../models/user.model';
 export class UserRepository {
   constructor(private userModel: Model<UserDoc>) {}
 
-
   async create(userData: Partial<UserDoc>): Promise<UserDoc> {
     try {
-        return this.userModel.create(userData);
+      return this.userModel.create(userData);
+    } catch (error) {
+      throw error;
     }
-    catch (error) {
-        throw error;
-      }
   }
 
   async findById(userId: string): Promise<UserDoc | null> {

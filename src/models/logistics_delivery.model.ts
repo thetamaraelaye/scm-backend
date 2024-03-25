@@ -6,14 +6,14 @@ import { UserDoc } from './user.model';
 enum ModeOfDelivery {
   Road = 'road',
   Air = 'air',
-  HomeDelivery = 'home_delivery'
+  HomeDelivery = 'home_delivery',
 }
 
 // Define enum for delivery status
 enum DeliveryStatus {
   Pending = 'pending',
   Delivered = 'delivered',
-  InTransit = 'in_transit'
+  InTransit = 'in_transit',
 }
 
 // Define interface for LogisticsDelivery document
@@ -41,7 +41,7 @@ const LogisticsDeliverySchema = new Schema<LogisticsDeliveryDoc>({
   mode_of_delivery: { type: String, enum: Object.values(ModeOfDelivery) },
   delivery_fee: { type: Schema.Types.Decimal128, default: null },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 // Define and export LogisticsDelivery model
