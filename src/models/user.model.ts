@@ -1,27 +1,11 @@
 import { Schema, model, Document } from 'mongoose';
-import { PermissionDoc } from './permission.model';
+import { UserDoc } from '../types/dbmodel';
 
 // Define enum for user roles
 enum UserRole {
   Admin = 'admin',
   Staff = 'staff',
   Supplier = 'supplier',
-}
-
-// Define interface for User document
-interface UserDoc extends Document {
-  email: string;
-  first_name: string;
-  last_name: string;
-  dial_code: string;
-  phone_number: string;
-  password: string;
-  nin?: number;
-  role: UserRole; // Use UserRole enum here
-  created_at: Date;
-  updated_at: Date;
-  is_admin: Boolean;
-  permission_id?: PermissionDoc['_id'];
 }
 
 // Define User Schema
@@ -43,4 +27,4 @@ const UserSchema = new Schema<UserDoc>({
 // Define and export User model
 const User = model<UserDoc>('User', UserSchema);
 
-export { User, UserRole, UserDoc };
+export { User, UserRole };
