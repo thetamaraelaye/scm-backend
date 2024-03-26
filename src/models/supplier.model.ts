@@ -1,23 +1,5 @@
-import { Schema, model, Document } from 'mongoose';
-import { UserDoc } from './user.model'; // Importing UserDoc interface from user.model.ts
-
-// Define interface for Supplier document
-interface SupplierDoc extends Document {
-  user_id: UserDoc['_id'];
-  company_name: string;
-  business_registration_id?: string;
-  x_url?: string;
-  instagram_url?: string;
-  facebook_url?: string;
-  estimate_inventory_capability: number;
-  number_of_clients: number;
-  business_email?: string;
-  dial_code: string;
-  business_phone_number: string;
-  is_approved: Boolean;
-  created_at: Date;
-  updated_at: Date;
-}
+import { Schema, model, } from 'mongoose';
+import { SupplierDoc } from '../types/dbmodel';
 
 // Define Supplier Schema
 const SupplierSchema = new Schema<SupplierDoc>({
@@ -40,4 +22,4 @@ const SupplierSchema = new Schema<SupplierDoc>({
 // Define and export Supplier model
 const Supplier = model<SupplierDoc>('Supplier', SupplierSchema);
 
-export { Supplier, SupplierDoc }; // Exporting Supplier;
+export { Supplier }; // Exporting Supplier;

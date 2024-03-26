@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { User, UserDoc } from '../models/user.model';
+import { UserDoc } from '../types/dbmodel';
 
 export class UserRepository {
   constructor(private userModel: Model<UserDoc>) {}

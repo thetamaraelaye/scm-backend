@@ -21,7 +21,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "src/types"
   ], // Specify source directory (adjust if needed)
   "exclude": [
     "src/types/*.ts",

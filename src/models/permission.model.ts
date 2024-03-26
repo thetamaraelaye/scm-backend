@@ -1,9 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-
-// Define interface for Permission document
-interface PermissionDoc extends Document {
-  scope: string;
-}
+import { PermissionDoc } from '../types/dbmodel';
 
 // Define Permission Schema
 const PermissionSchema = new Schema<PermissionDoc>({
@@ -13,4 +9,4 @@ const PermissionSchema = new Schema<PermissionDoc>({
 // Define and export Permission model
 const Permission = model<PermissionDoc>('Permission', PermissionSchema);
 
-export { Permission, PermissionDoc }; // Exporting Permission;
+export { Permission }; // Exporting Permission;
