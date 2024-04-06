@@ -156,28 +156,43 @@ interface InventoryDoc extends Document {
   updated_at: Date;
 }
 
-// Define interface for Inspection document
-interface InspectionDocument extends Document {
-  quantity_in_stock: number;
-  inventory_status: InventoryStatus;
-  product_id:  Types.ObjectId;
-  location_in_warehouse?: string;
-  supplier_id:  Types.ObjectId;
+
+interface InspectionDoc extends Document {
+  product_id: Types.ObjectId;
+  inspector_id: Types.ObjectId;
+  inspection_date: Date;
+  functionality_status: FunctionalityStatus;
+  additional_information?: string | null;
+ // images: HTMLCollectionOf<HTMLImageElement> | null;
   created_at: Date;
   updated_at: Date;
 }
 
+// Define interface for InspectionChecklist document
+interface InspectionChecklistDoc extends Document {
+  inspection_id: Types.ObjectId;
+  created_at: Date;
+  updated_at: Date;
+  keyboard?: string | null;
+  screen?: string | null;
+  touch_pad?: string | null;
+  camera?: string | null;
+  battery_life?: string | null;
+  ram?: string | null;
+  rom?: string | null;
+  is_charging: boolean;
+}
 
+// Define interface for Address document
+interface AddressDoc extends Document {
+  user_id: Types.ObjectId;
+  zip_code?: number;
+  city: string;
+  state: string;
+  country: string;
+  address_type: AddressType; // Use AddressType enum here
+  created_at: Date;
+  updated_at: Date;
+}
 
-// interface InspectionDoc extends Document {
-//   product_id: Types.ObjectId;
-//   inspector_id: Types.ObjectId;
-//   inspection_date: Date;
-//   functionality_status: FunctionalityStatus;
-//   additional_information?: string | null;
-//   images: HTMLCollectionOf<HTMLImageElement> | null;
-//   created_at: Date;
-//   updated_at: Date;
-// }
-
-export { PermissionDoc, UserDoc, SupplierDoc, SupplierInventoryDoc, ProductDoc, PaymentMethodDoc, OrderDoc, OrderItemDoc, LogisticsDeliveryDoc, InventoryDoc};
+export { PermissionDoc, UserDoc, SupplierDoc, SupplierInventoryDoc, ProductDoc, PaymentMethodDoc, OrderDoc, OrderItemDoc, LogisticsDeliveryDoc, InventoryDoc, InspectionDoc, InspectionChecklistDoc, AddressDoc};

@@ -1,20 +1,6 @@
-import { Schema, model, Document } from 'mongoose';
-import { InspectionDoc } from './inspection.model';
+import { Schema, model} from 'mongoose';
+import { InspectionChecklistDoc } from '../types/dbmodel';
 
-// Define interface for InspectionChecklist document
-interface InspectionChecklistDoc extends Document {
-  inspection_id: InspectionDoc['_id'];
-  created_at: Date;
-  updated_at: Date;
-  keyboard?: string | null;
-  screen?: string | null;
-  touch_pad?: string | null;
-  camera?: string | null;
-  battery_life?: string | null;
-  ram?: string | null;
-  rom?: string | null;
-  is_charging: boolean;
-}
 
 // Define InspectionChecklist Schema
 const InspectionChecklistSchema = new Schema<InspectionChecklistDoc>({

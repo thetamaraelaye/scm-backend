@@ -1,5 +1,5 @@
-import { Schema, model, Document } from 'mongoose';
-import { UserDoc } from './user.model'; // Importing UserDoc interface from user.model.ts
+import { Schema, model} from 'mongoose';
+import { AddressDoc } from '../types/dbmodel';
 
 // Define enum for address types
 enum AddressType {
@@ -7,17 +7,7 @@ enum AddressType {
   Business = 'business',
 }
 
-// Define interface for Address document
-interface AddressDoc extends Document {
-  user_id: UserDoc['_id'];
-  zip_code?: number;
-  city: string;
-  state: string;
-  country: string;
-  address_type: AddressType; // Use AddressType enum here
-  created_at: Date;
-  updated_at: Date;
-}
+
 
 // Define Address Schema
 const AddressSchema = new Schema<AddressDoc>({
