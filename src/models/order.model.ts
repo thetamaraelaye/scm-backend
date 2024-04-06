@@ -1,5 +1,5 @@
-import { Schema, model, Document } from 'mongoose';
-import { UserDoc } from './user.model';
+import { Schema, model} from 'mongoose';
+import {OrderDoc} from "../types/dbmodel";
 
 // Define enum for order status
 enum OrderStatus {
@@ -9,15 +9,6 @@ enum OrderStatus {
   Failed = 'failed',
 }
 
-// Define interface for Order document
-interface OrderDoc extends Document {
-  user_id: UserDoc['_id'];
-  customer_name: string;
-  status: OrderStatus;
-  total_amount: number | null;
-  created_at: Date;
-  updated_at: Date;
-}
 
 // Define Order Schema
 const OrderSchema = new Schema<OrderDoc>({
@@ -32,4 +23,4 @@ const OrderSchema = new Schema<OrderDoc>({
 // Define and export Order model
 const Order = model<OrderDoc>('Order', OrderSchema);
 
-export { Order, OrderDoc };
+export { Order, OrderStatus };

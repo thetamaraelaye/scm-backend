@@ -1,18 +1,5 @@
-import { Schema, model, Document, Mongoose } from 'mongoose';
-import { OrderDoc } from './order.model';
-import { ProductDoc } from './product.model';
-
-// Define interface for OrderItem document
-interface OrderItemDoc extends Document {
-  order_id: OrderDoc['_id'];
-  product_id: ProductDoc['_id'];
-  quantity: number;
-  discount_amount?: number | null;
-  discount_percentage?: number | null;
-  unit_price: number | null;
-  created_at: Date;
-  updated_at: Date;
-}
+import { Schema, model} from 'mongoose';
+import { OrderItemDoc } from '../types/dbmodel';
 
 // Define OrderItem Schema
 const OrderItemSchema = new Schema<OrderItemDoc>({
@@ -29,4 +16,4 @@ const OrderItemSchema = new Schema<OrderItemDoc>({
 // Define and export OrderItem model
 const OrderItem = model<OrderItemDoc>('OrderItem', OrderItemSchema);
 
-export { OrderItem, OrderItemDoc };
+export { OrderItem};

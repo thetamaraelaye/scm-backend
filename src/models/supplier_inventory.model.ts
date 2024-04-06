@@ -1,6 +1,6 @@
-import { Schema, model, Document } from 'mongoose';
-import { ProductDoc } from './product.model';
-import { SupplierDoc } from './supplier.model';
+import { Schema, model } from 'mongoose';
+import { SupplierInventoryDoc } from './../types/dbmodel';
+
 
 // Define enum for tracker status
 enum TrackerStatus {
@@ -9,15 +9,7 @@ enum TrackerStatus {
   Sold = 'sold',
 }
 
-// Define interface for SupplierInventory document
-interface SupplierInventoryDoc extends Document {
-  product_id: ProductDoc['_id'];
-  supplier_id: SupplierDoc['_id'];
-  quantity?: number;
-  tracker_status: TrackerStatus;
-  created_at: Date;
-  updated_at: Date;
-}
+
 
 // Define SupplierInventory Schema
 const SupplierInventorySchema = new Schema<SupplierInventoryDoc>({

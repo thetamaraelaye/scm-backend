@@ -1,6 +1,5 @@
-import { Schema, model, Document } from 'mongoose';
-import { OrderDoc } from './order.model';
-import { UserDoc } from './user.model';
+import { Schema, model} from 'mongoose';
+import { LogisticsDeliveryDoc } from '../types/dbmodel';
 
 // Define enum for mode of delivery
 enum ModeOfDelivery {
@@ -16,19 +15,6 @@ enum DeliveryStatus {
   InTransit = 'in_transit',
 }
 
-// Define interface for LogisticsDelivery document
-interface LogisticsDeliveryDoc extends Document {
-  order_id: OrderDoc['_id'];
-  user_id: UserDoc['_id'];
-  courier_provider_name: string;
-  tracking_number?: string | null;
-  estimated_delivery_date: Date;
-  delivery_status: DeliveryStatus;
-  mode_of_delivery?: ModeOfDelivery;
-  delivery_fee?: number | null;
-  created_at: Date;
-  updated_at: Date;
-}
 
 // Define LogisticsDelivery Schema
 const LogisticsDeliverySchema = new Schema<LogisticsDeliveryDoc>({
@@ -47,4 +33,4 @@ const LogisticsDeliverySchema = new Schema<LogisticsDeliveryDoc>({
 // Define and export LogisticsDelivery model
 const LogisticsDelivery = model<LogisticsDeliveryDoc>('LogisticsDelivery', LogisticsDeliverySchema);
 
-export { LogisticsDelivery, ModeOfDelivery, DeliveryStatus, LogisticsDeliveryDoc };
+export { LogisticsDelivery, ModeOfDelivery, DeliveryStatus};

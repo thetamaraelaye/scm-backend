@@ -1,15 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import { UserDoc } from './user.model'; // Importing UserDoc interface from user.model.ts
-
-// Define interface for PaymentMethod document
-interface PaymentMethodDoc extends Document {
-  user_id: UserDoc['_id'];
-  account_name: string;
-  account_number: number;
-  bank_name: string;
-  created_at: Date;
-  updated_at: Date;
-}
+import { PaymentMethodDoc } from '../types/dbmodel';
 
 // Define PaymentMethod Schema
 const PaymentMethodSchema = new Schema<PaymentMethodDoc>({

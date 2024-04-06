@@ -1,6 +1,6 @@
-import { Schema, model, Document } from 'mongoose';
-import { SupplierDoc } from './supplier.model'; // Importing SupplierDoc interface from supplier.model.ts
-import { UserDoc } from './user.model';
+import { Schema, model} from 'mongoose';
+import { ProductDoc } from '../types/dbmodel'; // Importing SupplierDoc interface from supplier.model.ts
+
 // Enums
 enum GadgetType {
   Laptop = 'laptop',
@@ -23,45 +23,6 @@ enum StateOfProduct {
   BrandNewNoBox = 'brand_new_no_box',
   ForeignUsed = 'foreign_used',
   NigerianUsed = 'nigerian_used',
-}
-
-// Define interface for Product document
-interface ProductDoc extends Document {
-  supplier_id: SupplierDoc['_id'];
-  created_by: UserDoc['_id'];
-  created_at: Date;
-  arrived_at?: Date | null;
-  sold_at?: Date | null;
-  updated_at: Date;
-  gadget_type: GadgetType;
-  brand: string;
-  gadget_model: string;
-  serial_number: string | null;
-  ram?: number | null;
-  rom?: number | null;
-  is_arrived: boolean;
-  returned_at?: Date | null;
-  memory_type?: MemoryType | null;
-  os?: string | null;
-  screen_size?: number | null;
-  price: number;
-  quantity: number;
-  state_of_product: StateOfProduct;
-  processor?: string | null;
-  graphics_card?: string | null;
-  backlit_keyboard: boolean;
-  touchscreen: boolean;
-  convertible: boolean;
-  fingerprint_scanner: boolean;
-  face_unlock: boolean;
-  camera_megapixels?: number | null;
-  sim_type?: string | null;
-  network_connectivity?: string | null;
-  waterproof: boolean;
-  wireless_charging: boolean;
-  stylus_included: boolean;
-  cellular_connectivity: boolean;
-  other_features?: string[] | null;
 }
 
 // Define Product Schema
@@ -107,4 +68,4 @@ const ProductSchema = new Schema<ProductDoc>({
 // Define and export Product model
 const Product = model<ProductDoc>('Product', ProductSchema);
 
-export { Product, ProductDoc };
+export { Product, GadgetType, StateOfProduct, MemoryType};

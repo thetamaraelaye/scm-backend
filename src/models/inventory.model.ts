@@ -1,6 +1,5 @@
-import { Schema, model, Document } from 'mongoose';
-import { ProductDoc } from './product.model';
-import { SupplierDoc } from './supplier.model';
+import { Schema, model} from 'mongoose';
+import { InventoryDoc } from '../types/dbmodel';
 
 // Define enum for inventory status
 enum InventoryStatus {
@@ -8,17 +7,6 @@ enum InventoryStatus {
   Unavailable = 'unavailable',
   Picked = 'picked',
   Delivered = 'delivered',
-}
-
-// Define interface for Inventory document
-interface InventoryDoc extends Document {
-  quantity_in_stock: number;
-  inventory_status: InventoryStatus;
-  product_id: ProductDoc['_id'];
-  location_in_warehouse?: string;
-  supplier_id: SupplierDoc['_id'];
-  created_at: Date;
-  updated_at: Date;
 }
 
 // Define Inventory Schema
