@@ -16,6 +16,7 @@ interface PermissionDoc extends Document {
 
 // Define interface for User document
 interface UserDoc extends Document {
+  id: Types.ObjectId;
   email: string;
   first_name: string;
   last_name: string;

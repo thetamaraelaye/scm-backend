@@ -1,12 +1,13 @@
-import { Model } from 'mongoose';
+import { User } from '../models/user.model';
 import { UserDoc } from '../types/dbmodel';
 
 export class UserRepository {
-  constructor(private userModel: Model<UserDoc>) {}
+  constructor() {}
 
-  async create(userData: Partial<UserDoc>): Promise<UserDoc> {
+  async create(userData: Partial<UserDoc>){
     try {
-      return this.userModel.create(userData);
+      const newUser = new User(userData);
+      return await newUser.save();
     } catch (error) {
       throw error;
     }
@@ -16,19 +17,20 @@ export class UserRepository {
     if (!userId) return null;
 
     // return this.userModel.findById(userId).exec();
-    return this.userModel.findById(userId).exec();
+    return await User.findById(userId).exec();
   }
 
   async findByEmail(email: string): Promise<UserDoc | null> {
-    return this.userModel.findOne({ email }).exec();
+    return await User.findOne({ email }).exec();
   }
 
   async update(userId: string, updates: Partial<UserDoc>): Promise<UserDoc | null> {
-    return this.userModel.findByIdAndUpdate(userId, updates, { new: true }).exec();
+    return await User.findByIdAndUpdate(userId, updates, { new: true }).exec();
   }
 
-  async delete(userId: string): Promise<void> {
-    await this.userModel.findByIdAndDelete(userId).exec();
+  async delete(userId: string) {
+    await User.findByIdAndDelete(userId).exec();
+    return;
   }
 }
 

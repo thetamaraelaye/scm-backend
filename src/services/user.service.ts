@@ -3,52 +3,51 @@ import { UserRepository } from '../repositories/user.repository'; // UserReposit
 import { UserLogin, UserSignup } from '../types/user.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { User } from '../models/user.model';
-import { Model } from 'mongoose';
-import { UserDoc } from '../models/user.model';
+import { BadRequestError } from '../helpers/handleError';
 
-const userModelInstance: Model<UserDoc> = User;
-const userRepo = new UserRepository(userModelInstance);
+const userRepo = new UserRepository();
 
 export class UserService {
-  async signup(userSignupDto: UserSignup) {
+  constructor() {}
+  async signup(UserSignup: UserSignup) {
     try {
-      const { email, firstName, lastName, password } = userSignupDto;
+      const { email, first_name, last_name, password } = UserSignup;
 
       // Validation check
       if (!email || !emailRegex.test(email)) {
-        throw new Error('A valid email address is required');
+        throw new BadRequestError('A valid email address is required');
       }
 
       if (!password || !passwordRegex.test(password)) {
-        throw new Error('A valid and strong password is required');
+        throw new BadRequestError('A valid and strong password is required');
       }
 
-      if (!firstName || !lastName) {
-        throw new Error('Both firstname and lastname are required');
+      if (!first_name || !last_name) {
+        throw new BadRequestError('Both firstname and lastname are required');
       }
 
       // Check if user exist
       const userRecord = await userRepo.findByEmail(email);
       if (userRecord) {
-        throw new Error('User already exist');
+        throw new BadRequestError('User already exist');
       }
 
       // Hash password
       const hashedPassword = await bcrypt.hash(password, 10);
-      const { password: pwd, ...storeUserRecordResult } = await userRepo.create({
-        ...userSignupDto,
+      const storeUserRecordResult = await userRepo.create({
+        ...UserSignup,
         password: hashedPassword,
       });
-      return storeUserRecordResult;
+      const { password: pwd, ...storeUserResult } = storeUserRecordResult.toObject();
+      return storeUserResult;
     } catch (error) {
       throw error;
     }
   }
 
-  async authenticate(userSigninDto: UserLogin) {
+  async authenticate(UserLogin: UserLogin) {
     try {
-      const { email, password } = userSigninDto;
+      const { email, password } = UserLogin;
 
       // Validation check
       if (!email || !emailRegex.test(email)) {
