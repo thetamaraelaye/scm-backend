@@ -17,9 +17,7 @@ const AddressSchema = new Schema<AddressDoc>({
   state: { type: String, required: true },
   country: { type: String, required: true },
   address_type: { type: String, enum: Object.values(AddressType), default: AddressType.Home }, // Using AddressType enum
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export Address model
 const Address = model<AddressDoc>('Address', AddressSchema);

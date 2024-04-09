@@ -14,10 +14,8 @@ const SupplierSchema = new Schema<SupplierDoc>({
   business_email: { type: String, unique: true, default: null },
   dial_code: { type: String, required: true },
   business_phone_number: { type: String, required: true },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
   is_approved: { type: Boolean, default: false },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export Supplier model
 const Supplier = model<SupplierDoc>('Supplier', SupplierSchema);

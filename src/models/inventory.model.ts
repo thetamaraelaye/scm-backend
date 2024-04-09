@@ -16,9 +16,7 @@ const InventorySchema = new Schema<InventoryDoc>({
   product_id: { type: Schema.Types.ObjectId, ref: 'Product', required: true, unique: true },
   location_in_warehouse: { type: String, default: null },
   supplier_id: { type: Schema.Types.ObjectId, ref: 'Supplier', required: true },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export Inventory model
 const Inventory = model<InventoryDoc>('Inventory', InventorySchema);

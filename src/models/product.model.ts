@@ -29,11 +29,8 @@ enum StateOfProduct {
 const ProductSchema = new Schema<ProductDoc>({
   supplier_id: { type: Schema.Types.ObjectId, ref: 'Supplier', required: true },
   created_by: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  created_at: { type: Date, default: Date.now },
   arrived_at: { type: Date, default: null },
   sold_at: { type: Date, default: null },
-
-  updated_at: { type: Date, default: Date.now },
   gadget_type: { type: String, enum: Object.values(GadgetType), required: true },
   brand: { type: String, required: true },
   serial_number: { type: String, default: null },
@@ -63,7 +60,7 @@ const ProductSchema = new Schema<ProductDoc>({
   stylus_included: { type: Boolean, default: false },
   cellular_connectivity: { type: Boolean, default: false },
   other_features: { type: [String], default: null },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export Product model
 const Product = model<ProductDoc>('Product', ProductSchema);

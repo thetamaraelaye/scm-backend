@@ -26,9 +26,7 @@ const LogisticsDeliverySchema = new Schema<LogisticsDeliveryDoc>({
   delivery_status: { type: String, enum: Object.values(DeliveryStatus), default: DeliveryStatus.Pending },
   mode_of_delivery: { type: String, enum: Object.values(ModeOfDelivery) },
   delivery_fee: { type: Schema.Types.Decimal128, default: null },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export LogisticsDelivery model
 const LogisticsDelivery = model<LogisticsDeliveryDoc>('LogisticsDelivery', LogisticsDeliverySchema);

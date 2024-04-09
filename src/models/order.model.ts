@@ -16,9 +16,7 @@ const OrderSchema = new Schema<OrderDoc>({
   customer_name: { type: String, required: true },
   status: { type: String, enum: Object.values(OrderStatus), default: OrderStatus.Pending },
   total_amount: { type: Schema.Types.Decimal128, required: true },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export Order model
 const Order = model<OrderDoc>('Order', OrderSchema);

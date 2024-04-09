@@ -9,9 +9,7 @@ const OrderItemSchema = new Schema<OrderItemDoc>({
   discount_amount: { type: Schema.Types.Decimal128, default: null },
   discount_percentage: { type: Number, default: null },
   unit_price: { type: Schema.Types.Decimal128, required: true },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export OrderItem model
 const OrderItem = model<OrderItemDoc>('OrderItem', OrderItemSchema);

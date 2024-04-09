@@ -15,9 +15,7 @@ const InspectionSchema = new Schema<InspectionDoc>({
   functionality_status: { type: String, enum: Object.values(FunctionalityStatus), required: true },
   additional_information: { type: String, default: null },
   images: { type: [String], default: null },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export Inspection model
 const Inspection = model<InspectionDoc>('Inspection', InspectionSchema);

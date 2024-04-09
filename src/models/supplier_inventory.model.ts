@@ -17,9 +17,7 @@ const SupplierInventorySchema = new Schema<SupplierInventoryDoc>({
   supplier_id: { type: Schema.Types.ObjectId, ref: 'Supplier', required: true },
   quantity: { type: Number },
   tracker_status: { type: String, enum: Object.values(TrackerStatus), required: true },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 // Define and export SupplierInventory model
 const SupplierInventory = model<SupplierInventoryDoc>('SupplierInventory', SupplierInventorySchema);
