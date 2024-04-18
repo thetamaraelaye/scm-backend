@@ -1,18 +1,14 @@
 {
   "compilerOptions": {
     "target": "es6", // Set the target JavaScript version (adjust if needed)
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ], // Standard library libraries
+    "lib": ["dom", "dom.iterable", "esnext"], // Standard library libraries
     "allowJs": true, // Allow compiling existing JavaScript files
     "rootDir": "src",
     //"strict": true, // Enable strict type checking
     "outDir": "dist", // Optional: Bundle compiled JS files (adjust path)
     "module": "NodeNext", // Module system (commonjs for Node.js)
     "strictNullChecks": true, // Ensures non-null checks
-    //"esModuleInterop": true, // Allow usage of modern ES modules syntax 
+    //"esModuleInterop": true, // Allow usage of modern ES modules syntax
     "sourceMap": true, // Enable source map generation
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -20,13 +16,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*",
-    "src/types"
-  ], // Specify source directory (adjust if needed)
-  "exclude": [
-    "src/types/*.ts",
-    "node_modules",
-    ".vscode"
-  ]
+  "include": ["src/**/*", "src/types"], // Specify source directory (adjust if needed)
+  "exclude": ["src/types/*.ts", "node_modules", ".vscode"]
 }
