@@ -49,6 +49,7 @@ export class UserService {
     try {
       const { email, password } = UserLogin;
 
+      console.log(email, password);
       // Validation check
       if (!email || !emailRegex.test(email)) {
         throw new Error('A valid email address is required');
@@ -64,6 +65,7 @@ export class UserService {
         throw new Error('User not found');
       }
 
+      console.log(userRecord.password);
       // Compare password
       const isPasswordMatch = await bcrypt.compare(password, userRecord.password);
 

@@ -20,11 +20,11 @@ export class UserRepository {
     return await User.findById(userId).exec();
   }
 
-  async findByEmail(email: string): Promise<UserDoc | null> {
+  async findByEmail(email: string){
     return await User.findOne({ email }).exec();
   }
 
-  async update(userId: string, updates: Partial<UserDoc>): Promise<UserDoc | null> {
+  async update(userId: string, updates: Partial<UserDoc>){
     return await User.findByIdAndUpdate(userId, updates, { new: true }).exec();
   }
 

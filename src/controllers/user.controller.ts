@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
   try {
     const credentials: UserLogin = req.body;
     const token = await userService.authenticate(credentials);
-    res.status(200).json({ response: 'success', token: 'token', user: credentials });
+    res.status(200).json({ response: 'success', token: token });
   } catch (error) {
     console.error('Error logging in:', error);
     res.status(401).json({ error: 'Invalid credentials' });
