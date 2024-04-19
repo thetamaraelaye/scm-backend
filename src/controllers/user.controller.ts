@@ -31,7 +31,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
       response: 'User login successfully',
       status: 200,
       token,
-      user: credentials,
+      //user: credentials,
     });
   } catch (error) {
     console.error('Error logging in:', error);
