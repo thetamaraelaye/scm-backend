@@ -38,3 +38,13 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     res.status(401).json({ error: 'Invalid credentials' });
   }
 };
+
+// export const verifyEmail = async (req: Request, res: Response, next: NextFunction) => {
+//   try {
+//     const credentials: VerifyEmail = req.body;
+//     const 
+//   }
+//   catch (error) {
+
+//   }
+// }
