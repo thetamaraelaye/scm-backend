@@ -2,12 +2,11 @@ import { Types } from 'mongoose';
 import { UserRole } from '../models/user.model';
 import { TrackerStatus } from '../models/supplier_inventory.model';
 import { AddressType } from '../models/address.model';
-import { GadgetType,  StateOfProduct, MemoryType } from '../models/product.model';
+import { GadgetType, StateOfProduct, MemoryType } from '../models/product.model';
 import { OrderStatus } from '../models/order.model';
 import { DeliveryStatus, ModeOfDelivery } from '../models/logistics_delivery.model';
 import { InventoryStatus } from '../models/inventory.model';
 import { FunctionalityStatus } from '../models/inspection.model';
-
 
 // Define interface for Permission document
 interface PermissionDoc extends Document {
@@ -28,6 +27,7 @@ interface UserDoc extends Document {
   created_at: Date;
   updated_at: Date;
   is_admin: Boolean;
+  is_verified: Boolean;
   permission_id?: Types.ObjectId;
 }
 
@@ -51,14 +51,13 @@ interface SupplierDoc extends Document {
 
 // Define interface for SupplierInventory document
 interface SupplierInventoryDoc extends Document {
-  product_id: Types.ObjectId
+  product_id: Types.ObjectId;
   supplier_id: Types.ObjectId;
   quantity?: number;
   tracker_status: TrackerStatus;
   created_at: Date;
   updated_at: Date;
 }
-
 
 // Define interface for Product document
 interface ProductDoc extends Document {
@@ -98,7 +97,6 @@ interface ProductDoc extends Document {
   cellular_connectivity: boolean;
   other_features?: string[] | null;
 }
-
 
 // Define interface for PaymentMethod document
 interface PaymentMethodDoc extends Document {
@@ -150,13 +148,12 @@ interface LogisticsDeliveryDoc extends Document {
 interface InventoryDoc extends Document {
   quantity_in_stock: number;
   inventory_status: InventoryStatus;
-  product_id:  Types.ObjectId;
+  product_id: Types.ObjectId;
   location_in_warehouse?: string;
-  supplier_id:  Types.ObjectId;
+  supplier_id: Types.ObjectId;
   created_at: Date;
   updated_at: Date;
 }
-
 
 interface InspectionDoc extends Document {
   product_id: Types.ObjectId;
@@ -164,7 +161,7 @@ interface InspectionDoc extends Document {
   inspection_date: Date;
   functionality_status: FunctionalityStatus;
   additional_information?: string | null;
- // images: HTMLCollectionOf<HTMLImageElement> | null;
+  // images: HTMLCollectionOf<HTMLImageElement> | null;
   created_at: Date;
   updated_at: Date;
 }
@@ -196,4 +193,27 @@ interface AddressDoc extends Document {
   updated_at: Date;
 }
 
-export { PermissionDoc, UserDoc, SupplierDoc, SupplierInventoryDoc, ProductDoc, PaymentMethodDoc, OrderDoc, OrderItemDoc, LogisticsDeliveryDoc, InventoryDoc, InspectionDoc, InspectionChecklistDoc, AddressDoc};
+//define interface for otp
+interface OtpDoc extends Document {
+  userId: any;
+  type: string;
+  otp: string;
+  otpExpiration: Date | null;
+}
+
+export {
+  PermissionDoc,
+  UserDoc,
+  SupplierDoc,
+  SupplierInventoryDoc,
+  ProductDoc,
+  PaymentMethodDoc,
+  OrderDoc,
+  OrderItemDoc,
+  LogisticsDeliveryDoc,
+  InventoryDoc,
+  InspectionDoc,
+  InspectionChecklistDoc,
+  AddressDoc,
+  OtpDoc,
+};
