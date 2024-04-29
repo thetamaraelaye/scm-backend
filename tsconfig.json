@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6", // Set the target JavaScript version (adjust if needed)
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ], // Standard library libraries
+    "lib": ["dom", "dom.iterable", "esnext"], // Standard library libraries
     "allowJs": true, // Allow compiling existing JavaScript files
     "rootDir": "src",
     //"strict": true, // Enable strict type checking
@@ -20,13 +16,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*",
-    "src/types"
-  ], // Specify source directory (adjust if needed)
-  "exclude": [
-    "src/types/*.ts",
-    "node_modules",
-    ".vscode"
-  ]
+  "include": ["src/**/*", "src/**/*.html", "src/types"], // Specify source directory (adjust if needed)
+  "exclude": ["src/types/*.ts", "node_modules", ".vscode"]
 }
