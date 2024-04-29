@@ -1,4 +1,4 @@
-import { UserRole } from "../models/user.model";
+import { UserRole } from '../models/user.model';
 
 export interface UserSignup {
   first_name: string;
@@ -12,6 +12,7 @@ export interface UserSignup {
   account_name: string;
   bank_name: string;
   role: UserRole;
+  is_verified: boolean;
   account_number: string;
   bvn: string;
 }
@@ -19,4 +20,28 @@ export interface UserSignup {
 export interface UserLogin {
   email: string;
   password: string;
+}
+
+export interface verifyEmail {
+  email: string;
+  otp: string;
+}
+export interface MailInterface {
+  from?: string;
+  to: string | string[];
+  cc?: string | string[];
+  bcc?: string | string[];
+  subject: string;
+  text?: string;
+  html: string;
+}
+
+export interface SmtpOptions {
+  host: string;
+  port: number;
+  secure: boolean;
+  auth: {
+    user: string;
+    pass: string;
+  };
 }

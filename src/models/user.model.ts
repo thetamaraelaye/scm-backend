@@ -1,4 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { UserDoc } from '../types/dbmodel';
 
 // Define enum for user roles
@@ -20,6 +20,7 @@ const UserSchema = new Schema<UserDoc>(
     nin: { type: Number, default: null },
     role: { type: String, enum: Object.values(UserRole), default: UserRole.Staff },
     is_admin: { type: Boolean, default: false },
+    is_verified: { type: Boolean, default: false },
     permission_id: { type: Schema.Types.ObjectId, ref: 'Permission' },
   },
   { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } },
