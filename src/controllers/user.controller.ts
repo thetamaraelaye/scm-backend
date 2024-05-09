@@ -19,6 +19,8 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
       message: 'User created successfully, Please check your email to verify your account',
     });
   } catch (error) {
+    console.error('Error during signup:', error);
+    next(error);
     // console.error('Error signing up:', error);
     // res.status(500).json({ error: `An error occurred while signing up', ${error} ` });
     // // console the error to debug
