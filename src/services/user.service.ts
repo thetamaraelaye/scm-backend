@@ -17,7 +17,6 @@ export class UserService {
   async signup(UserSignup: UserSignup) {
     try {
       const { email, first_name, last_name, password } = UserSignup;
-
       // Validation check
       if (!email || !emailRegex.test(email)) {
         throw new BadRequestError('A valid email address is required');
@@ -59,7 +58,7 @@ export class UserService {
       });
       await newOtp.save();
       //SEND VERIFICATION MAIL TO USER
-      const emailTemplate = verifyEmailTemplate(otp);
+      const emailTemplate = verifyEmailTemplate(otp, 'https://project-scm.vercel.app');
       const mailService = MailService.getInstance();
       await mailService.sendMail('', {
         to: storeUserResult.email,
