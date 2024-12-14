@@ -39,7 +39,7 @@ export interface MailInterface {
 export interface SmtpOptions {
   host: string;
   port: number;
-  secure: boolean;
+  //secure: boolean;
   auth: {
     user: string;
     pass: string;

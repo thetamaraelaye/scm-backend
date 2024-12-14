@@ -19,8 +19,10 @@ app.use(cors()); //enable cors after parsing request
 
 //on accessig the root directory via the browser
 app.get('/', (req, res) => {
+  //Set the Content-Type header to indicate that HTML content is being sent
+  res.setHeader('Content-Type', 'text/javascript');
   // Send an HTML page with styled content
-  res.sendFile(path.join(__dirname, 'welcome'));
+  res.sendFile(path.join(__dirname, 'welcome.js'));
 });
 
 // Use user routes
